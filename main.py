@@ -3,9 +3,20 @@ def main():
    text = get_book_text(book_path)
    num_words = get_num_words(text)
    chars_dict = get_chars_dict(text)
-   print(chars_dict)
+   chars_sorted_list = chars_dict_to_sorted_list(chars_dict)
 
+   print(f"--- Begin report of {book_path} ---")
+   print(f"{num_words} words found in the doctument")
+   print()
 
+   for item in chars_sorted_list:
+      if not item["char"].isalpha():
+         continue
+      print(f"the '{item['char']}' character was found {item[item'num']} times")
+
+   print("--- End report ---")
+
+   
 def get_num_words(text):
    words = text.split()
    return len(words)
