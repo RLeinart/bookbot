@@ -12,14 +12,23 @@ def main():
    for item in chars_sorted_list:
       if not item["char"].isalpha():
          continue
-      print(f"the '{item['char']}' character was found {item[item'num']} times")
+      print(f"the '{item['char']}' character was found {item['num']} times")
 
    print("--- End report ---")
 
-   
 def get_num_words(text):
    words = text.split()
    return len(words)
+
+def sort_on(d):
+   return d["num"]
+
+def chars_dict_to_sorted_list(num_chars_dict):
+   sorted_list=[]
+   for ch in num_chars_dict:
+      sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
+   sorted_list.sort(reverse=True, key=sort_on)
+   return sorted_list
 
 def get_chars_dict(text):
    chars = {}
